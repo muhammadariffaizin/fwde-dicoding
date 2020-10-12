@@ -1,0 +1,597 @@
+/*
+ * Custom css with sass
+ */
+
+/*
+ * Overwrite Default Style
+ */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa');
+
+/*
+ * Defining Variable
+ */
+$color-primary: #484bd7;
+$color-primary-light: lighten($color-primary, 10%);
+$color-primary-dark: darken($color-primary, 10%);
+$color-light: #fcfcfc;
+$color-shadow: #f3f3f3;
+$color-border: #bfbfbf;
+
+$colors: (
+    "primary": #484bd7, 
+    "primary-light": lighten($color-primary, 10%), 
+    "primary-dark": darken($color-primary, 10%), 
+    "light": #fcfcfc, 
+    "transparent": transparent,
+    "border": #7c9ae8,
+    "red": #db0000,
+);
+
+/*
+ * Overwrite Default Style
+ */
+* {
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+main:focus {
+    outline: none;
+}
+
+body {
+    margin: 0;
+    background: $color-shadow;
+}
+
+img {
+    display: block;
+}
+
+@for $i from 1 to 6 {
+    h#{$i} {
+        font-size: calc(4rem / #{$i});
+    }
+}
+
+/*
+ * Custom Style
+ */
+
+.sticky-offset {
+    margin-top: 2.8rem;
+}
+
+/*
+ * Nav Menu
+ */
+
+nav {
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    z-index: 100;
+    width: 100vw;
+    background-color: $color-primary;
+    justify-content: space-between;
+    padding: 0 1rem;
+    border-radius: 0 0 .75rem .75rem;
+    box-shadow: 0 .25rem .5rem 0 rgba(0, 0, 0, 0.2);
+    
+    .brand-logo {
+        font-weight: 400;
+        display: inline-flex;
+        padding: 0.75rem;
+        color: $color-light;
+        text-decoration: none;
+    }
+
+    .collapse-toggle {
+        padding: .25rem .75rem;
+        font-size: 1.25rem;
+        line-height: 1;
+        background-color: transparent;
+        border: 1px solid transparent;
+        border-radius: .25rem;
+        cursor: pointer;
+
+        .collapse-toggle-icon {
+            display: inline-flex;
+            width: 1.5em;
+            height: 1.5em;
+            vertical-align: middle;
+            content: "";
+            background: no-repeat center center;
+            background-size: 100% 100%;
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        }
+    }
+    
+    ul {
+        margin: 0;
+        display: inline-flex;
+        padding-inline-start: 0;
+        flex-direction: column;
+        flex-basis: 100%;
+        list-style-type: none;
+
+        &.collapse {
+            display: none;
+
+            &.show {
+                display: inline-flex;
+            }
+        }
+        
+        li {
+            display: inline-flex;
+            list-style-type: none;
+        
+            a {
+                padding: 1rem;
+                color: $color-light;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+/*
+ * Jumbotron
+ */
+.jumbotron {
+    height: 70vh;
+    overflow: hidden;
+    
+    .jumbotron-item {
+        height: inherit;
+        width: 100%;
+        position: relative;
+        background: rgba(0, 0, 0, 0.6);
+        transition: all 0.5s;
+        
+        img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: -100;
+            transition: all ease-in-out 0.2s;
+        }
+        
+        .jumbotron-content {
+            height: 100%;
+            padding: 3rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: -1;
+
+            .brand-name {
+                font-family: 'Comfortaa', sans-serif;
+                font-weight: 400;
+            }
+
+            .brand-description {
+                margin-top: 0;
+                font-size: 1.8rem;
+            }
+        }
+    }
+    
+    .jumbotron-item:hover {
+        background: rgba(0, 0, 0, 0.8);
+
+        img {
+            transform: scale(1.2);
+        }
+    }
+}
+
+/*
+ * Cards
+ */
+.card {
+    display: flex;
+    flex-direction: row;
+    box-shadow: 0 .25rem .5rem 0 rgba(0, 0, 0, 0.2);
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all ease-in-out 0.3s;
+    background: $color-light;
+
+    &.card-full {
+        flex-direction: column;
+
+        &.card-full-small {
+            .card-image {
+                img {
+                    height: 10rem;
+                }
+            }
+        }
+
+        .card-body {
+            width: auto;
+        }
+    }
+    
+    .card-label {
+        position: absolute;
+        margin: .75rem 0;
+        padding: .75rem;
+        font-size: 0.9em;
+        z-index: 99;
+        transition: all ease-in-out 0.3s;
+        border-radius: 0 .5rem .5rem 0;
+    }
+
+    .card-image {
+        width: 100%;
+        overflow: hidden;
+        
+        img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: all ease-in-out 0.3s;
+        }
+    }
+
+    .card-body {
+        padding: .8rem 1rem;
+        width: 16rem;
+        
+        .card-rating {
+            font-size: 0.8em;
+        }
+
+        .card-title {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+            text-decoration: none;
+            color: initial;
+
+            &.card-title-normal {
+                font-size: 1rem;
+            }
+        }
+
+    }
+    &:hover {
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15) !important;
+    
+        .card-label {
+            opacity: 0.8;
+        }
+    
+        .card-image {
+            img {
+                transform: scale(1.2);
+            }
+        }
+    }
+}
+
+/*
+ * Grid
+ */
+.d-grid {
+    display: grid;
+
+    @for $i from 1 through 4 {
+        &.grid-column-#{$i} {
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
+        }
+    }
+}
+
+/*
+ * Flex
+ */
+.d-flex {
+    display: flex;
+
+    @each $key in (row, column) {
+        &.flex-#{$key} {
+            flex-direction: $key;
+        }
+    }
+
+    &.justify-content-center {
+        justify-content: center;
+    }
+
+    &.align-items-center {
+        align-items: center;
+    }
+}
+
+/*
+ * Footer
+ */
+footer {
+    display: flex;
+    flex-direction: column;
+    background-color: $color-primary;
+    padding: 1rem;
+    align-items: center;
+
+    a {
+        display: block;
+    }
+}
+
+/*
+ * Container
+ */
+.container {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*
+ * Skip to Content
+ */
+.skip-link {
+    position: absolute;
+    top: -4rem;
+    left: 0;
+    background: $color-light;
+    text-decoration: none;
+    color: initial;
+    padding: 1rem;
+    z-index: 999;
+
+    &:focus {
+        top: 4rem;
+    }
+}
+
+/*
+   List Group
+*/
+.list-group {
+    list-style-type: none;
+    padding-inline-start: 0;
+
+    &.list-pill {
+        display: flex;
+        flex-wrap: wrap;
+        
+        .list-item {
+            margin: .25rem;
+            padding: .75rem 1rem;
+            font-size: .8rem;
+            border-radius: 2rem;
+            color: $color-light;
+            background: $color-primary;
+            cursor: pointer;
+
+            &:hover {
+                background: $color-primary-light;
+            }
+        }
+    }
+    
+    .list-item {
+        padding: 1rem 1rem;
+        border-bottom: solid 1px $color-border;
+
+        &:nth-last-child(1) {
+            border-bottom: none;
+        }
+    }
+}
+
+/*
+   Panel
+*/
+.panel-container {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 4.375rem;
+}
+
+/*
+ * Button
+ */
+.button-primary {
+    background: $color-primary;
+    padding: .75rem;
+    color: $color-light;
+    border: 0;
+    margin: .25rem;
+    box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2);
+    border-radius: .25rem;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+        background: $color-primary-light;
+    }
+
+    &.btn-round {
+        font-size: 1rem;
+        border-radius: 50%;
+        width: 3.5rem;
+        height: 3.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background: $color-primary-light;
+        }
+    }
+}
+
+/*
+ * Input Control
+ */
+label {
+    display: block;
+    margin-bottom: .5rem;
+}
+
+.input-control {
+    display: flex;
+    width: 100%;
+    padding: .25rem;
+    margin-bottom: .5rem;
+    border: 1px solid $color-border;
+    border-radius: .25rem;
+}
+
+/*
+ * Loading Spinner
+ */
+@keyframes ripple {
+    from {
+      transform: scale(0);
+      opacity: 1;
+    }
+  
+    to {
+      transform: scale(1);
+      opacity: 0;
+    }
+  }
+  
+  .loader-ripple {
+    width: 5rem;
+    height: 5rem;
+    margin: 2rem;
+  
+    div {
+      position: absolute;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 50%;
+      border: 0.3rem solid $color-primary;
+      animation: 1.5s ripple infinite;
+  
+      &:nth-child(2) {
+        animation-delay: 0.5s;
+      }
+    }
+  }
+
+  
+/* 
+ * Overflow wrapping
+ */
+.overflow-wrap-anywhere {
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    -ms-word-break: break-all;
+    word-break: break-all;
+}
+
+/* 
+ * Coloring
+ */
+@each $key, $val in $colors {
+    .bg-#{$key} {
+        background: $val !important;
+    }
+}
+
+@each $key, $val in $colors {
+    .text-#{$key} {
+        color: $val;
+    }
+}
+
+/*
+ * Sizing
+ */
+@each $position in top, right, bottom, left {
+    @for $i from 0 through 6 {
+        .margin-#{$position}-#{$i} {
+            margin-#{$position}: #{$i}rem;
+        }
+    }
+    @for $i from 0 through 6 {
+        .padding-#{$position}-#{$i} {
+            padding-#{$position}: #{$i}rem;
+        }
+    }
+    @for $i from 0 through 6 {
+        .border-#{$position}-#{$i} {
+            border-#{$position}: solid #{$i}px $color-border;
+        }
+    }
+    @for $i from 0 through 6 {
+        .#{$position}-#{$i} {
+            #{$position}: #{$i}rem;
+        }
+    }
+}
+
+@for $i from 1 through 6 {
+    .text-description-#{$i} {
+        display: -webkit-box;
+        -webkit-line-clamp: $i;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+
+@for $i from 1 through 4 {
+    .w-#{(100/4)*$i} {
+        width: calc((100%/4) * #{$i});
+    }
+    .h-#{(100/4)*$i} {
+        height: calc((100%/4) * #{$i});
+    }
+}
+
+@for $i from 1 through 5 {
+    .min-vw-#{(100/5)*$i} {
+        min-width: calc((100vw/5) * #{$i}) !important;
+    }
+    .min-vh-#{(100/5)*$i} {
+        min-height: calc((100vh/5) * #{$i}) !important;
+    }
+}
+
+
+/*
+ * Positioning
+ */
+$positions: (
+    "absolute": absolute,
+    "fixed": fixed,
+    "sticky": sticky,
+);
+
+@each $key, $position in $positions {
+    .position-#{$key} {
+        position: $position;
+    }
+}
+
+@each $pos in left, center, right {
+    .text-#{$pos} {
+        text-align: $pos;
+    }
+}

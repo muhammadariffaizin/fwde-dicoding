@@ -1,0 +1,132 @@
+/*
+ * Defining Variable
+ */
+ $color-primary: #484bd7;
+ $color-primary-light: lighten($color-primary, 10%);
+ $color-primary-dark: darken($color-primary, 10%);
+ $color-light: #fcfcfc;
+ $color-shadow: #f3f3f3;
+ $color-border: #bfbfbf;
+ 
+ $colors: (
+     "primary": #484bd7, 
+     "primary-light": lighten($color-primary, 10%), 
+     "primary-dark": darken($color-primary, 10%), 
+     "light": #fcfcfc, 
+     "transparent": transparent,
+     "border": #7c9ae8,
+     "red": #db0000,
+ );
+
+/*
+ * For tablet screen
+ */
+@media screen and (min-width: 576px) {
+    nav {
+        padding: 0 2rem;
+
+        .collapse-toggle {
+            display: none;
+        }
+
+        ul {
+            flex-direction: row;
+            flex-basis: auto;
+
+            &.collapse {
+                display: inline-flex;
+            }
+        }
+    }
+
+    .jumbotron {
+        .jumbotron-content {
+            .brand-name {
+                font-size: 5rem;
+            }
+        }
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .d-grid {
+        @for $i from 1 through 4 {
+            &.grid-column-#{$i} {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    }
+
+    .container {
+        max-width: 540px;
+    }
+
+    .card {
+        flex-direction: column;
+        
+        &:not(.card-full) {
+            .card-image {
+                img {
+                    height: 12rem;
+                }
+            }
+        }
+
+        .card-body {
+            width: auto;
+        }
+    }
+}
+
+/*
+ * For desktop screen
+ */
+@media screen and (min-width: 768px) {
+    .d-grid {
+        @for $i from 1 through 4 {
+            &.grid-column-#{$i} {
+                grid-template-columns: repeat($i, 1fr);
+            }
+        }
+    }
+
+    .card:not(.card-full) {
+        .card-image {
+            img {
+                height: 30vh;
+            }
+        }
+    }
+
+    .card.card-full {
+        .card-image {
+            img {
+                height: 60vh;
+            }
+        }
+    }
+
+    .container {
+        max-width: 47rem;
+    }
+
+    nav {
+        ul {
+            li:hover {
+                background-color: $color-primary-light;
+                transition: ease-in 0.2s;
+            }
+        }
+    }
+}
+
+/*
+ * For screen bigger than usual desktop
+ */
+@media screen and (min-width: 992px) {
+    .container {
+        max-width: 62rem;
+    }
+}
