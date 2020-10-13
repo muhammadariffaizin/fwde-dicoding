@@ -1,15 +1,15 @@
 import API_ENDPOINT from '../../globals/api-endpoint';
 
 const createRestaurantItemTemplate = (restaurant) => `
-    <div id="${restaurant.id}" class="card h-100">
-        <div class="card-label bg-primary text-light">City: ${restaurant.city}</div>
+    <div id="${restaurant.id}" class="restaurant-item card h-100">
+        <div class="card-label bg-primary text-light">City: ${restaurant.city || '-'}</div>
         <div class="card-image">
-            <img src="${restaurant.pictureId ? API_ENDPOINT.IMAGE(restaurant.pictureId, 'medium') : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="${restaurant.name}" loading="lazy" crossorigin="anonymous">
+            <img src="${restaurant.pictureId ? API_ENDPOINT.IMAGE(restaurant.pictureId, 'medium') : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="${restaurant.name || '-'}" loading="lazy" crossorigin="anonymous">
         </div>
         <div class="card-body">
-            <div class="card-rating"><i class="fa fa-star"></i> ${restaurant.rating}</div>
-            <a href="#/detail/${restaurant.id}" class="card-title">${restaurant.name}</a>
-            <p class="text-description-4">${restaurant.description}</p>
+            <div class="card-rating"><i class="fa fa-star"></i> ${restaurant.rating || '-'}</div>
+            <a href="#/detail/${restaurant.id}" class="card-title">${restaurant.name || '-'}</a>
+            <p class="text-description-4">${restaurant.description || '-'}</p>
         </div>
     </div>
   `;
@@ -70,7 +70,7 @@ const createFavoriteButtonTemplate = () => `
     </button>
   `;
 
-const createFavoritedButtonTemplate = () => `
+const createUnfavoriteButtonTemplate = () => `
     <button aria-label="remove from favorite" id="favoriteButton" class="button-primary btn-round bg-red">
       <i class="fa fa-heart" aria-hidden="true"></i>
     </button>
@@ -137,7 +137,7 @@ export {
   createRestaurantItemTemplate,
   createRestaurantDetailTemplate,
   createFavoriteButtonTemplate,
-  createFavoritedButtonTemplate,
+  createUnfavoriteButtonTemplate,
   createReviewTemplate,
   createShowReviewTemplate,
   createFormReviewTemplate,

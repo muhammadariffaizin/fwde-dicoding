@@ -8,7 +8,8 @@
     "build": "webpack --config webpack.prod.js",
     "test": "karma start",
     "lint": "eslint ./src",
-    "lint-fix": "eslint ./src --fix"
+    "lint-fix": "eslint ./src --fix",
+    "lint-fix-specs": "eslint ./specs --fix"
   },
   "keywords": [],
   "author": "Muhammad Arif Faizin <muhammadariffaizin@gmail.com>",

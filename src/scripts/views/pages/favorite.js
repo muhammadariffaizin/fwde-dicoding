@@ -1,4 +1,4 @@
-import FavoriteRestaurantIdb from '../../data/favoriterestaurant-idb';
+import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
 import RippleLoading from '../../utils/ripple-loading-initiator';
 import '../../utils/component/restaurant-list';
 

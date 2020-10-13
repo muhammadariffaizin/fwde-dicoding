@@ -1,5 +1,5 @@
 import RestaurantDbSource from '../data/restaurantdb-source';
-import FavoriteRestaurantIdb from '../data/favoriterestaurant-idb';
+import FavoriteRestaurantIdb from '../data/favorite-restaurant-idb';
 import RippleLoading from './ripple-loading-initiator';
 import { createReviewTemplate, createFormReviewTemplate, createShowReviewTemplate } from '../views/templates/template-creator';
 
