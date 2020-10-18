@@ -16,4 +16,4 @@ class RestaurantList extends HTMLElement {
   }
 }
 
-customElements.define('restaurant-list', RestaurantList);
+customElements.get('restaurant-list') || customElements.define('restaurant-list', RestaurantList);

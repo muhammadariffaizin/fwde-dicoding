@@ -1,18 +1,27 @@
 class FavoriteRestaurantShowPresenter {
-  constructor({ view, favoriteRestaurants }) {
+  constructor({ view, favoriteRestaurants, loader }) {
     this._view = view;
     this._favoriteRestaurants = favoriteRestaurants;
+    this._loader = loader;
 
-    this._showFavoriteRestaurants();
+    try {
+      this._showFavoriteRestaurants();
+    } catch (error) {
+      this._showError(error);
+    }
   }
 
   async _showFavoriteRestaurants() {
-    const restaurants = this._favoriteRestaurants.getAllRestaurants();
+    const restaurants = await this._favoriteRestaurants.getAllRestaurants();
     this._displayRestaurants(restaurants);
   }
 
   _displayRestaurants(restaurants) {
-    this._view.showFavoriteRestaurants(restaurants);
+    this._view.showFavoriteRestaurants(restaurants, this._loader);
+  }
+
+  _showError(error) {
+    this._loader.setError(`Error: ${error}, please refresh the page`);
   }
 }
 

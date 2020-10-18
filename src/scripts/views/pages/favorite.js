@@ -1,18 +1,15 @@
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
+import FavoriteRestaurantSearchView from './saved-restaurant/favorite-restaurant-search-view';
+import FavoriteRestaurantSearchPresenter from './saved-restaurant/favorite-restaurant-search-presenter';
+import FavoriteRestaurantShowPresenter from './saved-restaurant/favorite-restaurant-show-presenter';
 import RippleLoading from '../../utils/ripple-loading-initiator';
 import '../../utils/component/restaurant-list';
 
+const view = new FavoriteRestaurantSearchView();
+
 const Favorite = {
   async render() {
-    return `
-      <div class="container min-vh-80">
-        <h2 class="text-center margin-bottom-0 margin-top-4">Favorite Restaurant</h2>
-        <p class="text-center margin-bottom-3">Save your favorite restaurant here!</p>
-        <div id="restaurantsListContainer">
-          <restaurant-list class="d-grid grid-column-3"></restaurant-list>
-        </div>
-      </div>
-    `;
+    return view.getTemplate();
   },
 
   async afterRender() {
@@ -21,20 +18,16 @@ const Favorite = {
       container: restaurantListContainer,
       contentBeforeLoading: restaurantListContainer.innerHTML,
     });
-
-    try {
-      const restaurantsData = await FavoriteRestaurantIdb.getAllRestaurants();
-      RippleLoading.unsetLoader();
-
-      const restaurantListElement = document.querySelector('restaurant-list');
-      if (restaurantsData.length) {
-        restaurantListElement.restaurants = restaurantsData;
-      } else {
-        RippleLoading.setError('Ups! You don\'t have any favorite restaurant.. <br>Please back to the home');
-      }
-    } catch (error) {
-      RippleLoading.setError(`Error: ${error}, please refresh the page`);
-    }
+    new FavoriteRestaurantShowPresenter({
+      view,
+      favoriteRestaurants: FavoriteRestaurantIdb,
+      loader: RippleLoading,
+    });
+    new FavoriteRestaurantSearchPresenter({
+      view,
+      favoriteRestaurants: FavoriteRestaurantIdb,
+      loader: RippleLoading,
+    });
   },
 };
 

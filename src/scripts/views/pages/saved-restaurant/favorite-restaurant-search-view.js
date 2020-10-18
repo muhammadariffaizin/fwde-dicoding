@@ -1,14 +1,17 @@
-import { createRestaurantItemTemplate } from '../../templates/template-creator';
+import '../../../utils/component/restaurant-list';
 
 class FavoriteRestaurantSearchView {
   getTemplate() {
     return `
-      <div class="content">
-          <input id="query" type="text">
-          <h2 class="content__heading">Your Liked Restaurant</h2>
-          <div id="restaurants" class="restaurants">
-            
-          </div>
+      <div class="container min-vh-80">
+        <h2 class="text-center margin-bottom-0 margin-top-4">Favorite Restaurant</h2>
+        <p class="text-center">Save your favorite restaurant here!</p>
+        <div class="d-flex margin-bottom-3 justify-content-center">
+          <input id="query" class="w-50 input-control" type="text">
+        </div>
+        <div id="restaurantsListContainer">
+          <restaurant-list class="d-grid grid-column-3"></restaurant-list>
+        </div>
       </div>
           `;
   }
@@ -19,25 +22,16 @@ class FavoriteRestaurantSearchView {
     });
   }
 
-  showFavoriteRestaurants(restaurants = []) {
-    let html;
+  showFavoriteRestaurants(restaurants = [], loader) {
+    loader.unsetLoader();
+    const restaurantListElement = document.querySelector('restaurant-list');
 
     if (restaurants.length) {
-      html = restaurants.reduce(
-        (carry, restaurant) => carry.concat(createRestaurantItemTemplate(restaurant)),
-        '',
-      );
+      restaurantListElement.restaurants = restaurants;
     } else {
-      html = this._getEmptyRestaurantTemplate();
+      loader.setError('Ups! didn\'t match any favorite restaurant <br>or no favorite restaurant saved... <br>Please try another word or try to save another restaurant');
     }
-
-    document.getElementById('restaurants').innerHTML = html;
-
-    document.getElementById('restaurants').dispatchEvent(new Event('restaurants:updated'));
-  }
-
-  _getEmptyRestaurantTemplate() {
-    return '<div class="restaurant-item__not__found">Restaurant not found</div>';
+    document.querySelector('#restaurantsListContainer').dispatchEvent(new Event('restaurants:updated'));
   }
 }
 

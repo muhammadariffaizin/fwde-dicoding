@@ -16,7 +16,7 @@ const createRestaurantItemTemplate = (restaurant) => `
 
 const createRestaurantDetailTemplate = (restaurant) => `
     <div id="content" class="margin-top-1">
-        <div class="card card-full margin-bottom-1">
+        <div id="restaurant-main-info" class="card card-full margin-bottom-1">
             <div class="card-image">
                 <img src="${API_ENDPOINT.IMAGE(restaurant.pictureId, 'large')}" alt="${restaurant.name}" />
             </div>
@@ -129,7 +129,7 @@ const createRippleLoaderError = (message) => `
     <div>
       <i class="far fa-4x fa-frown text-red"></i>
     </div>
-    <p class="text-center">${message}</p>
+    <p id="error-message" class="text-center">${message}</p>
   </div>
 `;
 
