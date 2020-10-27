@@ -1,8 +1,8 @@
 const CONFIG = {
   KEY: '12345',
-  BASE_URL: 'https://dicoding-restaurant-api.el.r.appspot.com/',
+  BASE_URL: 'https://restaurant-api.dicoding.dev/',
   DEFAULT_LANGUAGE: 'en-us',
-  CACHE_NAME: 'PrestoRestaurantApp-V1',
+  CACHE_NAME: 'PrestoRestaurantApp-V3',
   DATABASE_NAME: 'presto-restaurant-database',
   DATABASE_VERSION: 1,
   OBJECT_STORE_NAME: 'restaurants',
