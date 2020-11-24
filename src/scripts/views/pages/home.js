@@ -8,7 +8,22 @@ const Home = {
         <section>
             <div class="jumbotron">
                 <div class="jumbotron-item">
-                    <img src="./images/heros/hero-image.jpg" alt="Hero">
+                    <picture>
+                        <source type="image/webp" 
+                            srcset="./images/heros/hero-image-large.webp 800w,
+                                    ./images/heros/hero-image-medium.webp 600w,
+                                    ./images/heros/hero-image-small.webp 480w"
+                            sizes="(max-width: 600px) 480px, (max-width: 800px) 600px, 800px">
+                        <source type="image/jpeg" 
+                            srcset="./images/heros/hero-image-large.jpg 800w,
+                                    ./images/heros/hero-image-medium.jpg 600w,
+                                    ./images/heros/hero-image-small.jpg 480w"
+                            sizes="(max-width: 600px) 480px, (max-width: 800px) 600px, 800px">
+                        <img class="lazyload" 
+                            width="640" height="480"
+                            data-src="./images/heros/hero-image-large.jpg" 
+                            alt="Hero">
+                    </picture>
                     <div class="jumbotron-content">
                         <h1 class="brand-name text-light">presto</h1>
                         <p class="brand-description text-light">Find the best resto around you!</p>
@@ -20,8 +35,22 @@ const Home = {
             <section class="margin-top-3 d-grid grid-column-3">
                 <div id="banner_choose_resto" class="card">
                     <div class="card-image">
-                        <img src="https://b.zmtcdn.com/webFrontend/95f005332f5b9e71b9406828b63335331585809309.png"
-                            alt="banner choose resto" crossorigin="anonymous">
+                        <picture>
+                            <source type="image/webp" 
+                                srcset="./images/banner/banner_1-large.webp 800w,
+                                        ./images/banner/banner_1-medium.webp 600w,
+                                        ./images/banner/banner_1-small.webp 480w"
+                                sizes="(max-width: 600px) 480px, (max-width: 800px) 600px, 800px">
+                            <source type="image/jpeg" 
+                                srcset="./images/banner/banner_1-large.jpg 800w, 
+                                        ./images/banner/banner_1-medium.jpg 600w,
+                                        ./images/banner/banner_1-small.jpg 480w"
+                                sizes="(max-width: 600px) 480px, (max-width: 800px) 600px, 800px">
+                            <img class="lazyload" 
+                                width="320" height="240"
+                                data-src="./images/banner/banner_1-large.jpg"
+                                alt="banner choose resto">
+                        </picture>
                     </div>
                     <div class="card-body">
                         <p class="card-title text-center">Choose resto</p>
@@ -30,8 +59,22 @@ const Home = {
                 </div>
                 <div id="banner_save_resto" class="card">
                     <div class="card-image">
-                        <img src="https://cdn-image.hipwee.com/wp-content/uploads/2015/08/27DA0B1400000578-3050116-Taking_a_good_food_picture_for_Instagram_requires_thought_planni-a-12_1430212889456-750x422.jpg"
-                            alt="banner save resto" crossorigin="anonymous">
+                        <picture>
+                            <source type="image/webp" 
+                                srcset="./images/banner/banner_2-large.webp 800w,
+                                        ./images/banner/banner_2-medium.webp 600w,
+                                        ./images/banner/banner_2-small.webp 480w"
+                                sizes="(max-width: 600px) 480px, (max-width: 800px) 600px, 800px">
+                            <source type="image/jpeg" 
+                                srcset="./images/banner/banner_2-large.jpg 800w, 
+                                        ./images/banner/banner_2-medium.jpg 600w,
+                                        ./images/banner/banner_2-small.jpg 480w"
+                                sizes="(max-width: 600px) 480px, (max-width: 800px) 600px, 800px">
+                            <img class="lazyload" 
+                                width="320" height="240"
+                                data-src="./images/banner/banner_2-large.jpg"
+                                alt="banner save resto">
+                        </picture>
                     </div>
                     <div class="card-body">
                         <p class="card-title text-center">Save resto</p>
@@ -40,8 +83,22 @@ const Home = {
                 </div>
                 <div id="banner_review_resto" class="card">
                     <div class="card-image">
-                        <img src="https://b.zmtcdn.com/data/collections/9c0b6e018ae12dfc7c370cf714b7fae2_1568086635.jpg"
-                            alt="banner review resto" crossorigin="anonymous">
+                        <picture>
+                            <source type="image/webp" 
+                                srcset="./images/banner/banner_3-large.webp 800w,
+                                        ./images/banner/banner_3-medium.webp 600w,
+                                        ./images/banner/banner_3-small.webp 480w"
+                                sizes="(max-width: 600px) 480px, (max-width: 800px) 600px, 800px">
+                            <source type="image/jpeg" 
+                                srcset="./images/banner/banner_3-large.jpg 800w, 
+                                        ./images/banner/banner_3-medium.jpg 600w,
+                                        ./images/banner/banner_3-small.jpg 480w"
+                                sizes="(max-width: 600px) 480px, (max-width: 800px) 600px, 800px">
+                            <img class="lazyload" 
+                                width="320" height="240"
+                                data-src="./images/banner/banner_3-large.jpg"
+                                alt="banner review resto">
+                        </picture>
                     </div>
                     <div class="card-body">
                         <p class="card-title text-center">Enjoy and share</p>

@@ -1,7 +1,7 @@
 /*
  * Defining Variable
  */
- $color-primary: #484bd7;
+ $color-primary: #3843D3;
  $color-primary-light: lighten($color-primary, 10%);
  $color-primary-dark: darken($color-primary, 10%);
  $color-light: #fcfcfc;
@@ -9,7 +9,7 @@
  $color-border: #bfbfbf;
  
  $colors: (
-     "primary": #484bd7, 
+     "primary": #3843D3, 
      "primary-light": lighten($color-primary, 10%), 
      "primary-dark": darken($color-primary, 10%), 
      "light": #fcfcfc, 

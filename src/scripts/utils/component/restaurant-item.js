@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import { createRestaurantItemTemplate } from '../../views/templates/template-creator';
 
 class RestaurantItem extends HTMLElement {

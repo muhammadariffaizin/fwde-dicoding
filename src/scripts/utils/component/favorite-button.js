@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-expressions */
 import { createFavoriteButtonTemplate, createUnfavoriteButtonTemplate } from '../../views/templates/template-creator';
 
 class FavoriteButton extends HTMLElement {

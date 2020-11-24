@@ -4,7 +4,10 @@ const createRestaurantItemTemplate = (restaurant) => `
     <div id="${restaurant.id}" class="restaurant-item card h-100">
         <div class="card-label bg-primary text-light">City: ${restaurant.city || '-'}</div>
         <div class="card-image">
-            <img src="${restaurant.pictureId ? API_ENDPOINT.IMAGE(restaurant.pictureId, 'medium') : 'https://picsum.photos/id/666/800/450?grayscale'}" alt="${restaurant.name || '-'}" loading="lazy" crossorigin="anonymous">
+            <img class="lazyload" 
+              data-src="${restaurant.pictureId ? API_ENDPOINT.IMAGE(restaurant.pictureId, 'medium') : 'https://picsum.photos/id/666/800/450?grayscale'}" 
+              width="320" height="240"
+              alt="${restaurant.name || '-'}" crossorigin="anonymous">
         </div>
         <div class="card-body">
             <div class="card-rating"><i class="fa fa-star"></i> ${restaurant.rating || '-'}</div>
@@ -18,7 +21,9 @@ const createRestaurantDetailTemplate = (restaurant) => `
     <div id="content" class="margin-top-1">
         <div id="restaurant-main-info" class="card card-full margin-bottom-1">
             <div class="card-image">
-                <img src="${API_ENDPOINT.IMAGE(restaurant.pictureId, 'large')}" alt="${restaurant.name}" />
+                <img class="lazyload"
+                  width="320" height="240"
+                  data-src="${API_ENDPOINT.IMAGE(restaurant.pictureId, 'large')}" alt="${restaurant.name}" />
             </div>
             <div class="card-body">
                 <h2 class="card-title margin-bottom-0">${restaurant.name}</h2>
