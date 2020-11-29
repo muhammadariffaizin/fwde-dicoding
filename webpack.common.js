@@ -1,9 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
-// const ImageminMozjpeg = require('imagemin-mozjpeg');
-// const ImageminPngQuant = require('imagemin-pngquant');
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const { InjectManifest } = require('workbox-webpack-plugin');
 const path = require('path');
@@ -14,7 +11,7 @@ module.exports = {
   entry: path.resolve(__dirname, 'src/scripts/index.js'),
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
   },
   module: {
     rules: [
@@ -74,10 +71,6 @@ module.exports = {
         {
           from: path.resolve(__dirname, 'src/public/'),
           to: path.resolve(__dirname, 'dist/'),
-          // CopyWebpackPlugin mengabaikan berkas yang berada di dalam folder images
-          // globOptions: {
-          //   ignore: ['**/images/**'],
-          // },
         },
       ],
     }),
@@ -85,18 +78,6 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
-    // new ImageminWebpackPlugin({
-    //   disable: process.env.NODE_ENV !== 'production',
-    //   plugins: [
-    //     ImageminMozjpeg({
-    //       quality: 50,
-    //       progressive: true,
-    //     }),
-    //     ImageminPngQuant({
-    //       quality: [0.3, 0.7],
-    //     }),
-    //   ],
-    // }),
     new ImageminWebpWebpackPlugin({
       config: [
         {

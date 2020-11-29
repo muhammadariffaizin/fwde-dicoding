@@ -91,7 +91,7 @@ const createShowReviewTemplate = (restaurant) => `
         <div class="card-body">
             <h3 class="card-title">Customer Reviews</h3>
             <div class="list-group">
-                ${restaurant.consumerReviews.map((review) => `
+                ${restaurant.customerReviews.map((review) => `
                     <div class="list-item">
                         <b class="overflow-wrap-anywhere">${review.name}</b>
                         <small>${review.date}</small>
@@ -105,7 +105,7 @@ const createShowReviewTemplate = (restaurant) => `
 
 const createFormReviewTemplate = (id) => `
   <div class="card">
-      <div class="card-body">
+      <div class="card-body card-no-img">
         <h3 class="card-title">Add Review</h3>
           <form id="formAddReview" method="POST">
               <input type="hidden" name="id" value="${id}">
@@ -138,6 +138,15 @@ const createRippleLoaderError = (message) => `
   </div>
 `;
 
+const renderFooter = () => `  
+  <div class="footer">
+    <div class="footer-logo margin-bottom-2">
+      <img src="./icons/logo_light.png" width="144" height="37.52" alt="logo presto">
+    </div>
+    <p class="text-center text-light">Copyright © 2020 - Presto</p>
+  </div>
+`;
+
 export {
   createRestaurantItemTemplate,
   createRestaurantDetailTemplate,
@@ -148,4 +157,5 @@ export {
   createFormReviewTemplate,
   createRippleLoader,
   createRippleLoaderError,
+  renderFooter,
 };

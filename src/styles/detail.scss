@@ -1,0 +1,132 @@
+/*
+ * Defining Variable
+ */
+$color-primary: #3843D3;
+$color-primary-light: lighten($color-primary, 10%);
+$color-primary-dark: darken($color-primary, 10%);
+$color-light: #fcfcfc;
+$color-shadow: #f3f3f3;
+$color-border: #bfbfbf;
+
+$colors: (
+    "primary": #3843D3, 
+    "primary-light": lighten($color-primary, 10%), 
+    "primary-dark": darken($color-primary, 10%), 
+    "light": #fcfcfc, 
+    "transparent": transparent,
+    "border": #7c9ae8,
+    "red": #db0000,
+);
+
+/*
+ * Card
+ */
+.card {
+    &.card-full {
+        flex-direction: column;
+
+        .card-body {
+            width: auto;
+        }
+    }
+}
+
+/*
+   List Group
+*/
+.list-group {
+    list-style-type: none;
+    padding-inline-start: 0;
+
+    &.list-pill {
+        display: flex;
+        flex-wrap: wrap;
+        
+        .list-item {
+            margin: .25rem;
+            padding: .75rem 1rem;
+            font-size: .8rem;
+            border-radius: 2rem;
+            color: $color-light;
+            background: $color-primary;
+            cursor: pointer;
+
+            &:hover {
+                background: $color-primary-light;
+            }
+        }
+    }
+    
+    .list-item {
+        padding: 1rem 1rem;
+        border-bottom: solid 1px $color-border;
+
+        &:nth-last-child(1) {
+            border-bottom: none;
+        }
+    }
+}
+
+/*
+ * Button
+ */
+ .button-primary {
+    background: $color-primary;
+    padding: .75rem;
+    color: $color-light;
+    border: 0;
+    margin: .25rem;
+    box-shadow: 0 0.25rem 0.5rem 0 rgba(0, 0, 0, 0.2);
+    border-radius: .25rem;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+        background: $color-primary-light;
+    }
+
+    &.btn-round {
+        font-size: 1rem;
+        border-radius: 50%;
+        width: 3.5rem;
+        height: 3.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &:hover {
+            background: $color-primary-light;
+        }
+    }
+}
+
+/*
+ * Input Control
+ */
+label {
+    display: block;
+    margin-bottom: .5rem;
+}
+
+.input-control {
+    display: flex;
+    width: 100%;
+    padding: .25rem;
+    margin-bottom: .5rem;
+    border: 1px solid $color-border;
+    border-radius: .25rem;
+}
+  
+/* 
+ * Overflow wrapping
+ */
+ .overflow-wrap-anywhere {
+    overflow-wrap: anywhere;
+    word-wrap: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    -ms-word-break: break-all;
+    word-break: break-all;
+}

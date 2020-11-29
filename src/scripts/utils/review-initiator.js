@@ -46,7 +46,7 @@ const ReviewInitiator = {
       const response = await RestaurantDbSource.postReviewRestaurant(dataForm);
 
       if (!response.error) {
-        this._restaurant.consumerReviews = response.customerReviews;
+        this._restaurant.customerReviews = response.customerReviews;
         await FavoriteRestaurantIdb.putRestaurant(this._restaurant);
         this._renderPostedReviews();
       }

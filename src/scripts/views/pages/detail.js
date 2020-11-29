@@ -5,6 +5,7 @@ import ReviewInitiator from '../../utils/review-initiator';
 import RippleLoading from '../../utils/ripple-loading-initiator';
 import '../../utils/component/favorite-button';
 import FavoriteRestaurantIdb from '../../data/favorite-restaurant-idb';
+import '../../../styles/detail.scss';
 
 const Detail = {
   async render() {
@@ -39,7 +40,7 @@ const Detail = {
         categories: restaurant.categories,
         description: restaurant.description,
         menus: restaurant.menus,
-        consumerReviews: restaurant.consumerReviews,
+        customerReviews: restaurant.customerReviews,
       };
       favoriteButton.init(restaurantData, FavoriteRestaurantIdb);
 

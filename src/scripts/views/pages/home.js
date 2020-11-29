@@ -34,75 +34,30 @@ const Home = {
         <div class="container">
             <section class="margin-top-3 d-grid grid-column-3">
                 <div id="banner_choose_resto" class="card">
-                    <div class="card-image">
-                        <picture>
-                            <source type="image/webp" 
-                                srcset="./images/banner/banner_1-large.webp 800w,
-                                        ./images/banner/banner_1-medium.webp 600w,
-                                        ./images/banner/banner_1-small.webp 480w"
-                                sizes="(max-width: 600px) 480px, (max-width: 800px) 600px, 800px">
-                            <source type="image/jpeg" 
-                                srcset="./images/banner/banner_1-large.jpg 800w, 
-                                        ./images/banner/banner_1-medium.jpg 600w,
-                                        ./images/banner/banner_1-small.jpg 480w"
-                                sizes="(max-width: 600px) 480px, (max-width: 800px) 600px, 800px">
-                            <img class="lazyload" 
-                                width="320" height="240"
-                                data-src="./images/banner/banner_1-large.jpg"
-                                alt="banner choose resto">
-                        </picture>
-                    </div>
-                    <div class="card-body">
+                    <div class="card-body card-no-img">
                         <p class="card-title text-center">Choose resto</p>
                         <p class="text-description-2 text-center">Find the best place to eat in your city</p>
                     </div>
+                    <div class="card-icon">
+                        <p>1</p>
+                    </div>
                 </div>
                 <div id="banner_save_resto" class="card">
-                    <div class="card-image">
-                        <picture>
-                            <source type="image/webp" 
-                                srcset="./images/banner/banner_2-large.webp 800w,
-                                        ./images/banner/banner_2-medium.webp 600w,
-                                        ./images/banner/banner_2-small.webp 480w"
-                                sizes="(max-width: 600px) 480px, (max-width: 800px) 600px, 800px">
-                            <source type="image/jpeg" 
-                                srcset="./images/banner/banner_2-large.jpg 800w, 
-                                        ./images/banner/banner_2-medium.jpg 600w,
-                                        ./images/banner/banner_2-small.jpg 480w"
-                                sizes="(max-width: 600px) 480px, (max-width: 800px) 600px, 800px">
-                            <img class="lazyload" 
-                                width="320" height="240"
-                                data-src="./images/banner/banner_2-large.jpg"
-                                alt="banner save resto">
-                        </picture>
-                    </div>
-                    <div class="card-body">
+                    <div class="card-body card-no-img">
                         <p class="card-title text-center">Save resto</p>
                         <p class="text-description-2 text-center">Save your favorite resto easily</p>
                     </div>
+                    <div class="card-icon">
+                        <p>2</p>
+                    </div>
                 </div>
                 <div id="banner_review_resto" class="card">
-                    <div class="card-image">
-                        <picture>
-                            <source type="image/webp" 
-                                srcset="./images/banner/banner_3-large.webp 800w,
-                                        ./images/banner/banner_3-medium.webp 600w,
-                                        ./images/banner/banner_3-small.webp 480w"
-                                sizes="(max-width: 600px) 480px, (max-width: 800px) 600px, 800px">
-                            <source type="image/jpeg" 
-                                srcset="./images/banner/banner_3-large.jpg 800w, 
-                                        ./images/banner/banner_3-medium.jpg 600w,
-                                        ./images/banner/banner_3-small.jpg 480w"
-                                sizes="(max-width: 600px) 480px, (max-width: 800px) 600px, 800px">
-                            <img class="lazyload" 
-                                width="320" height="240"
-                                data-src="./images/banner/banner_3-large.jpg"
-                                alt="banner review resto">
-                        </picture>
-                    </div>
-                    <div class="card-body">
+                    <div class="card-body card-no-img">
                         <p class="card-title text-center">Enjoy and share</p>
                         <p class="text-description-2 text-center">Visit your favorite resto and share the experiences</p>
+                    </div>
+                    <div class="card-icon">
+                        <p>3</p>
                     </div>
                 </div>
             </section>

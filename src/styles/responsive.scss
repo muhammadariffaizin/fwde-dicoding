@@ -1,22 +1,22 @@
 /*
  * Defining Variable
  */
- $color-primary: #3843D3;
- $color-primary-light: lighten($color-primary, 10%);
- $color-primary-dark: darken($color-primary, 10%);
- $color-light: #fcfcfc;
- $color-shadow: #f3f3f3;
- $color-border: #bfbfbf;
+$color-primary: #3843D3;
+$color-primary-light: lighten($color-primary, 10%);
+$color-primary-dark: darken($color-primary, 10%);
+$color-light: #fcfcfc;
+$color-shadow: #f3f3f3;
+$color-border: #bfbfbf;
  
- $colors: (
-     "primary": #3843D3, 
-     "primary-light": lighten($color-primary, 10%), 
-     "primary-dark": darken($color-primary, 10%), 
-     "light": #fcfcfc, 
-     "transparent": transparent,
-     "border": #7c9ae8,
-     "red": #db0000,
- );
+$colors: (
+    "primary": #3843D3, 
+    "primary-light": lighten($color-primary, 10%), 
+    "primary-dark": darken($color-primary, 10%), 
+    "light": #fcfcfc, 
+    "transparent": transparent,
+    "border": #7c9ae8,
+    "red": #db0000,
+);
 
 /*
  * For tablet screen
@@ -52,7 +52,7 @@
     }
 
     .d-grid {
-        @for $i from 1 through 4 {
+        @for $i from 1 through 3 {
             &.grid-column-#{$i} {
                 grid-template-columns: 1fr 1fr;
             }
@@ -85,7 +85,7 @@
  */
 @media screen and (min-width: 768px) {
     .d-grid {
-        @for $i from 1 through 4 {
+        @for $i from 1 through 3 {
             &.grid-column-#{$i} {
                 grid-template-columns: repeat($i, 1fr);
             }
