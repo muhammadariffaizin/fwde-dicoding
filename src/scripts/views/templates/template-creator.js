@@ -113,7 +113,7 @@ const createFormReviewTemplate = (id) => `
               <input class="input-control" type="text" name="name">
               <label for="name">Review</label>
               <textarea class="input-control" type="text" name="review"></textarea>
-              <input class="button-primary" type="submit" value="Add Review">
+              <input id="submitReview" class="button-primary" type="submit" value="Add Review">
           </form>
       </div>
   </div>

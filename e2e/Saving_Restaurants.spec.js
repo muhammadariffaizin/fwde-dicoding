@@ -32,7 +32,7 @@ Scenario('saving one restaurant', async ({ I }) => {
   assert.strictEqual(firstRestaurantName, savedRestaurantName);
 });
 
-Scenario('searching restaurants', async ({ I }) => {
+Scenario('searching saved restaurants', async ({ I }) => {
   I.see('no favorite restaurant saved...', '#error-message');
 
   I.amOnPage('/');
