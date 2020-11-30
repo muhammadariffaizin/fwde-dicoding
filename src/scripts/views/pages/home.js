@@ -1,5 +1,5 @@
 import RestaurantDbSource from '../../data/restaurantdb-source';
-import RippleLoading from '../../utils/ripple-loading-initiator';
+import { createSkeletonRestaurantItemTemplate, createRippleLoaderError } from '../templates/template-creator';
 import '../../utils/component/restaurant-list';
 
 const Home = {
@@ -65,7 +65,9 @@ const Home = {
                 <h2 class="text-center margin-bottom-0">Explore Restaurant</h2>
                 <p class="text-center margin-bottom-3">Find from the curated list of the best restaurants and cafes in your city!</p>
                 <div id="restaurantsListContainer">
-                    <restaurant-list class="d-grid grid-column-3"></restaurant-list>
+                    <restaurant-list class="d-grid grid-column-3">
+                    ${createSkeletonRestaurantItemTemplate(20)}
+                    </restaurant-list>
                 </div>
             </section>
         </div>
@@ -74,19 +76,13 @@ const Home = {
 
   async afterRender() {
     const restaurantListContainer = document.querySelector('#restaurantsListContainer');
-
-    RippleLoading.init({
-      container: restaurantListContainer,
-      contentBeforeLoading: restaurantListContainer.innerHTML,
-    });
+    const restaurantListElement = document.querySelector('restaurant-list');
 
     try {
       const listRestaurants = await RestaurantDbSource.listRestaurants();
-      RippleLoading.unsetLoader();
-      const restaurantListElement = document.querySelector('restaurant-list');
       restaurantListElement.restaurants = listRestaurants;
     } catch (error) {
-      RippleLoading.setError(`Error: ${error}, please refresh the page`);
+      restaurantListContainer.innerHTML = createRippleLoaderError(`Error: ${error}, please refresh the page`);
     }
   },
 };

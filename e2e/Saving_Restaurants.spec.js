@@ -11,7 +11,8 @@ Scenario('showing empty saved restaurants', ({ I }) => {
   I.see('Ups! didn\'t match any favorite restaurant', '#error-message');
 });
 
-Scenario('saving one restaurant', async ({ I }) => {
+Scenario('saving and unsaving one restaurant', async ({ I }) => {
+  // Saving restaurant
   I.see('no favorite restaurant saved...', '#error-message');
 
   I.amOnPage('/');
@@ -30,6 +31,19 @@ Scenario('saving one restaurant', async ({ I }) => {
   const savedRestaurantName = await I.grabTextFrom('restaurant-item a');
 
   assert.strictEqual(firstRestaurantName, savedRestaurantName);
+
+  // Unsaving restaurant
+  I.click(firstRestaurant);
+
+  I.seeElement('#favoriteButton');
+  I.click('#favoriteButton');
+
+  I.amOnPage('/#/favorite');
+  I.seeElement('#error-message');
+
+  const emptySavedMessage = await I.grabTextFrom('#error-message');
+
+  assert.strictEqual(emptySavedMessage, 'Ups! didn\'t match any favorite restaurant <br>or no favorite restaurant saved... <br>Please try another word or try to save another restaurant');
 });
 
 Scenario('searching saved restaurants', async ({ I }) => {

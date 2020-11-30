@@ -1,7 +1,7 @@
 import * as TestFactories from './helpers/testFactories';
 import FavoriteRestaurantIdb from '../src/scripts/data/favorite-restaurant-idb';
 
-describe('Removing a restaurant', () => {
+describe('Unsaving a restaurant', () => {
   const addFavoriteButtonContainer = () => {
     document.body.innerHTML = '<favorite-button class="position-fixed bottom-1 right-1"></favorite-button>';
   };

@@ -71,6 +71,18 @@ $colors: (
                 img {
                     height: 12rem;
                 }
+
+                &:empty::after {
+                    height: 12rem;
+                }
+            }
+        }
+
+        &.card-full {
+            .card-image {
+                &:empty::after {
+                    height: 12rem;
+                }
             }
         }
 
@@ -92,21 +104,32 @@ $colors: (
         }
     }
 
-    .card:not(.card-full) {
-        .card-image {
-            img {
-                height: 30vh;
+    .card {
+        &:not(.card-full) {
+            .card-image {
+                img {
+                    height: 30vh;
+                }
+    
+                &:empty::after {
+                    height: 30vh;
+                }
+            }
+        }
+        
+        &.card-full {
+            .card-image {
+                img {
+                    height: 60vh;
+                }
+                
+                &:empty::after {
+                    height: 60vh;
+                }
             }
         }
     }
 
-    .card.card-full {
-        .card-image {
-            img {
-                height: 60vh;
-            }
-        }
-    }
 
     .container {
         max-width: 47rem;

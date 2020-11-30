@@ -17,6 +17,25 @@ const createRestaurantItemTemplate = (restaurant) => `
     </div>
   `;
 
+const createSkeletonRestaurantItemTemplate = (count) => {
+  let template = '';
+
+  for (let i = 0; i < count; i++) {
+    template += `
+        <div class="restaurant-item card h-100">
+            <div class="card-label bg-primary text-light">City: Lorem Ipsum</div>
+            <div class="card-image"></div>
+            <div class="card-body">
+                <div class="card-rating"><i class="fa fa-star"></i> 5</div>
+                <p class="card-title">Lorem ipsum dolor sit.</p>
+                <p class="text-description-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci alias aspernatur, assumenda aut consectetur consequuntur debitis deleniti dicta dolorem dolorum eos exercitationem labore laboriosam magni nihil, nobis obcaecati optio perspiciatis placeat qui recusandae saepe sapiente sequi totam ullam ut.</p>
+            </div>
+        </div>
+      `;
+  }
+  return template;
+};
+
 const createRestaurantDetailTemplate = (restaurant) => `
     <div id="content" class="margin-top-1">
         <div id="restaurant-main-info" class="card card-full margin-bottom-1">
@@ -158,4 +177,5 @@ export {
   createRippleLoader,
   createRippleLoaderError,
   renderFooter,
+  createSkeletonRestaurantItemTemplate,
 };
