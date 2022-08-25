@@ -20,7 +20,7 @@ precacheAndRoute(self.__WB_MANIFEST, {
 });
 
 registerRoute(
-  /^https:\/\/dicoding-restaurant-api\.el\.r\.appspot\.com\/(?:(list|detail))/,
+  /^https:\/\/restaurant-api\.dicoding\.dev\/(?:(list|detail))/,
   new StaleWhileRevalidate({
     cacheName: 'dicoding-restaurant-api',
     plugins: [

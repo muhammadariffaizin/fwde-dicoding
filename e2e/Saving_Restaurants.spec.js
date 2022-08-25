@@ -42,8 +42,10 @@ Scenario('saving and unsaving one restaurant', async ({ I }) => {
   I.seeElement('#error-message');
 
   const emptySavedMessage = await I.grabTextFrom('#error-message');
-
-  assert.strictEqual(emptySavedMessage, 'Ups! didn\'t match any favorite restaurant <br>or no favorite restaurant saved... <br>Please try another word or try to save another restaurant');
+  console.log(emptySavedMessage);
+  assert.strictEqual(emptySavedMessage, `Ups! didn't match any favorite restaurant\n${
+    'or no favorite restaurant saved...\n'
+  }${'Please try another word or try to save another restaurant'}`);
 });
 
 Scenario('searching saved restaurants', async ({ I }) => {

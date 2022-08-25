@@ -1,3 +1,4 @@
 node_modules
 dist
-e2e/output
+e2e/outputs
+./package-lock.json

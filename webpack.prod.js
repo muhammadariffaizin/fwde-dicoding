@@ -1,6 +1,7 @@
 const { merge } = require('webpack-merge');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const UglifyJsWebpackPlugin = require('uglifyjs-webpack-plugin');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -27,6 +28,12 @@ module.exports = merge(common, {
         },
       },
     },
+    minimize: true,
+    minimizer: [new UglifyJsWebpackPlugin({
+      cache: true,
+      parallel: true,
+      sourceMap: true,
+    })],
   },
   module: {
     rules: [
